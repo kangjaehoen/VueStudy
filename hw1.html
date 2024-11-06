@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js sample</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+	<h2>다양한 속성 바인딩</h2>
+	<style>
+		.blue-underline {
+			text-decoration: underline;
+			color: blue;
+		}
+
+		.strike-through {
+			text-decoration: line-through;
+			color: lightgray
+		}
+
+		.dark {
+			background-color: darkgray;
+		}
+
+		img {
+			width : 100px;
+		}
+	</style>
+
+	<div id="app">
+		<p><a v-bind:href="myURL">뷰(https://vuejs.org/)로 연결</a></p>
+		<p><img v-bind:src="myImage" >clover.png 표시</img></p>
+		<p v-bind:style="{textAlign:myAlignLeft}">텍스트를 왼쪽 정렬</p>
+		<p v-bind:style="{textAlign:myAlignRight}">텍스트를 오른쪽 정렬</p>
+		<p v-bind:style="{textAlign:myAlignCenter}">텍스트를 가운데 정렬</p>
+		<p v-bind:style="{color:myColorRed}">인라인 스타일로 글자색을 빨간색으로</p>
+		<p v-bind:style="{color:myColorRed, fontSize:mySize}">인라인 스타일로 글자크기를 150% 크게 빨간색으로</p>
+		<p v-bind:style="{color:myColorRed, fontSize:mySize, backgroundColor:myBackGroundColor}">인라인 스타일로 글자크기를 150% 크게 빨간색으로 배경은 노란색으로</p>
+		<p v-bind:class="[myClass]">blue-underline class 지정</p>
+		<p v-bind:class="[myClass, darkClass]">blue-underline, dark class 지정</p>
+	</div>
+
+	<script>
+		
+		const { createApp} = Vue;
+		createApp({
+			data() {
+				return{
+					myURL : 'https://vuejs.org/',
+					myImage : 'images/clover.png',
+					myAlignRight : 'right',
+					myAlignLeft : 'left',
+					myAlignCenter : 'center', 
+					myColorRed : 'red',
+					mySize : '1.5em',
+					myBackGroundColor : 'yellow',
+					myClass :'blue-underline',
+					darkClass: 'dark'
+				}
+
+			}
+		}).mount("#app");
+
+	</script>
+</body>
+
+</html>
