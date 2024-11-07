@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.js</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    div {
+      width : 200px;
+      border : 1px solid green;
+      margin : 5px;
+      text-align : center;
+    }
+    div:nth-of-type(1) {
+      background-color : pink;
+    }
+    div:nth-of-type(2) {
+      background-color : rgb(192, 227, 255);
+    }
+  </style>
+</head>
+<body>
+  <h1>계산된 속성을 사용하면 좋은점</h1>
+  <hr>
+  <main id="app">
+    <div>
+      <h3>{{ name + "-" + addr + "-" + age }}</h3>
+      <h3>{{ name + "-" + addr + "-" + age }}</h3>
+      <h3>{{ name + "-" + addr + "-" + age }}</h3>
+    </div>
+    <div>
+      <h3>{{ mydooly }}</h3>
+      <h3>{{ mydooly }}</h3>
+      <h3>{{ mydooly }}</h3>
+    </div>
+    
+  </main>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          name: '둘리',
+          addr: '쌍문동',
+          age: 10,
+        }
+      },      
+      computed: {
+        mydooly() {          
+          return this.name + "-" + this.addr + "-" + this.age;
+        }
+      },
+    }).mount("#app");
+  </script>
+</body>
+</html>
