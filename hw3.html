@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>간단한 계산기</h2>
+        <input type="number" v-model="num1">
+        <input type="number" v-model="num2"><br><br>
+        <button @click="sum(num1,num2)" >덧셈계산</button>
+        <button @click="minus(num1,num2)" >뺄셈계산</button>
+        <button @click="times(num1,num2)" >곱셈계산</button>
+        <button @click="division(num1,num2)" >나눗셈계산</button>
+        <p>결과는 {{ result }} 입니다.</p>   
+</div>
+<script>
+    const { createApp } = Vue;
+    createApp ({
+            data() {
+                return {
+                    num1 : 0,
+                    num2 : 0,
+                    result : ''
+                }
+            },
+                methods: {
+                    sum(num1, num2) {
+                        this.result = num1+num2;
+                        console.log(result);
+                    },
+                    minus(num1, num2){
+                        this.result = num1-num2;
+                        console.log(result);
+                    },
+                    times(num1,num2){
+                        this.result = num1*num2;
+                    },
+                    division(num1,num2){
+                        this.result = num1/num2;
+                    }
+            }
+        }).mount('#app');
+</script>
+</body>
+</html>

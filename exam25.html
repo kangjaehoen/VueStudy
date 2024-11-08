@@ -21,7 +21,7 @@
     <hr>
     <div id="app">
         <h1>v-cloak 을 사용하지 않은 태그 - {{msg}}</h1>
-        <div v-cloak>
+        <div v-cloak> // view 객체와 controller와 연결이 되면 사라지는 속성 : v-cloak
             <h1>v-cloak 을 사용한 태그 - {{msg}}</h1>
         </div>
     </div>
@@ -33,7 +33,8 @@
                         msg: "hello"
                     }
                 }
-            }).mount("#app")
+            }).mount("#app") //마운트 호출때 v-cloack은 사라진다. 
+            
         }, 3000);
     </script>
 </body>

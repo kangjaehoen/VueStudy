@@ -11,7 +11,7 @@
 		<div id="app">
 			<p> {{count}}회</p>
 			<button v-on:click="count++">카운터1</button>
-			<button @click="countUp">카운터2</button>
+			<button @click="countUp()">카운터2</button>
 		</div>
 		<script>
 			const { createApp } = Vue;
